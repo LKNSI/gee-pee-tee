@@ -150,7 +150,7 @@ Switch the engine used by the client. Provides a validation method while doing s
 
 ```javascript
 openai.Prototype.setEngine({
-  verifyChoice: BOOLEAN // Default: False. If true, fetch a list of available engines and verify the new engine is supported. One shot if false, throws if engine is not supported.
+  verifyChoice: BOOLEAN, // Default: False. If true, fetch a list of available engines and verify the new engine is supported. One shot if false, throws if engine is not supported.
   engine: STRING // Name of the engine by its slug to use.
 })
 ```
