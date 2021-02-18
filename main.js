@@ -36,7 +36,7 @@ class openai {
                     "prompt":opts.prompt,
                     "temperature": opts.temperature ? opts.temperature : 0.3,
                     "max_tokens": opts.maxTokens ? opts.maxTokens : 60,
-                    "top_p": opts.topPercent ? opts.topPercent : 1.0,
+                    "top_p": opts.topProbability  ? opts.topProbability : 1.0,
                     "frequency_penalty": opts.frequencyPenalty ? opts.frequencyPenalty : 0.5,
                     "presence_penalty": opts.presencePenalty ? opts.presencePenalty : 0.0,
                     "stop": opts.stop ? [...opts.stop] : ["###"]                    
@@ -94,17 +94,24 @@ class openai {
     }
 
     async setEngine(opts){
-        const verifyChoice = opts.verifyChoice ? opts.verifyChoice : false
-        if(verifyChoice){
-            const getManifest = await this.getEngines()
-            if(getManifest.engineSlugs.includes(opts.engine)){
-                this.engine = opts.engine
-            }else{
-                throw new Error('Engine choice is not available or does not exist.')
+        try{
+            if(this.ready){
+                const verifyChoice = opts.verifyChoice ? opts.verifyChoice : false
+                if(verifyChoice){
+                    const getManifest = await this.getEngines()
+                    if(getManifest.engineSlugs.includes(opts.engine)){
+                        this.engine = opts.engine
+                    }else{
+                        throw new Error('Engine choice is not available or does not exist.')
+                    }
+                }else{
+                    this.engine = opts.engine
+                }                
             }
-        }else{
-            this.engine = opts.engine
+        }catch(err){
+            return err
         }
+
     }
 
 /*  Boilerplate

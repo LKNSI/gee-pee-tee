@@ -7,4 +7,12 @@ const main = async() => {
     console.log(require('util').inspect(req,false, null, true))
 }
 
-main()
+const getEngines = async() => {
+    const gpt = new openai({apiToken: process.env.OPENAITOKEN})
+    await gpt.initalize()
+    const req = await gpt.getEngines()
+    console.log(require('util').inspect(req,false, null, true))
+}
+
+//main()
+getEngines()
