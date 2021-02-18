@@ -14,7 +14,7 @@ class openai {
         this.ready = false
     }
 
-    async initalize(){
+    async initialize(){
         try{
             if(this.apiToken === false) throw new Error('API Key Required for OpenAI')
             this.agent = new https.Agent({rejectUnauthorized: this._rejectUnauthorized, keepAlive: this._keepAlive})

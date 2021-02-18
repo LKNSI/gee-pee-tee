@@ -13,7 +13,7 @@ const openai = require('gee-pee-tee')
 
 const main = async() => {
     const gpt = new openai({apiToken: process.env.OPENAITOKEN})
-    await gpt.initalize()
+    await gpt.initialize()
     const req = await gpt.prompt({"prompt":`Hello world is commonly used by programmers as a way of`})
     console.log(require('util').inspect(req,false, null, true))
 }
@@ -45,17 +45,17 @@ new openai({
 })
 ```
 
-### openai.Prototype.initalize()
-Initalizes the client, required before using any function. Configures the HTTPS agent and applies constructor base presets.
+### openai.Prototype.initialize()
+Initializes the client, required before using any function. Configures the HTTPS agent and applies constructor base presets.
 
 ```javascript
-openai.Prototype.initalize()
+openai.Prototype.initialize()
 ```
 
 ```javascript
 const gpt = new openai({apiToken: ...})
 
-await gpt.initalize()
+await gpt.initialize()
 ```
 
 ### openai.Prototype.prompt()
