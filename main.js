@@ -87,6 +87,8 @@ class openai {
                 }else{
                     throw new Error(`Request Failed.`)
                 }
+            }else{
+                throw new Error('Run openai.Prototype.initalize() first.')
             }
         }catch(err){
             return err
@@ -107,6 +109,8 @@ class openai {
                 }else{
                     this.engine = opts.engine
                 }                
+            }else{
+                throw new Error('Run openai.Prototype.initalize() first.')
             }
         }catch(err){
             return err
