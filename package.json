@@ -1,6 +1,6 @@
 {
   "name": "gee-pee-tee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "NodeJS library for interacting with OpenAI",
   "main": "main.js",
   "scripts": {

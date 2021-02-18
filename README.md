@@ -3,6 +3,10 @@ NodeJS library for interacting with OpenAI and their various language models and
 
 ## Installation
 ```shell
+/* Stable */
+npm install gee-pee-tee
+
+/* Development */
 npm install https://github.com/LKNSI/gee-pee-tee.git
 ```
 
