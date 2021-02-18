@@ -145,7 +145,7 @@ openai.Prototype.getEngines()
 }
 ```
 
- ### openai.Prototype.getEngines()
+ ### openai.Prototype.setEngines()
 Switch the engine used by the client. Provides a validation method while doing so.
 
 ```javascript
