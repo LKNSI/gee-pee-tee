@@ -4,17 +4,15 @@ NodeJS library for interacting with OpenAI and their various language models and
 
 ## Installation
 ```shell
-/* Stable */
-npm install gee-pee-tee
 
-/* Development */
-npm install https://github.com/LKNSI/gee-pee-tee.git
+npm install @chatsight/gee-pee-tee
+
 ```
 
 ## Quick Start
 
 ```javascript
-const openai = require('gee-pee-tee')
+const openai = require('@chatsight/gee-pee-tee')
 
 const main = async() => {
     const gpt = new openai({apiToken: process.env.OPENAITOKEN})
