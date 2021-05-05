@@ -1,5 +1,8 @@
 const axios = require('axios')
 const https = require('https')
+const qstri = require('querystring');
+const {SSE} = require('sse.js')
+const EventSource = require('eventsource')
 
 class openai {
     constructor(opts){
@@ -12,6 +15,7 @@ class openai {
         this.agent = null
         this.runner = null
         this.ready = false
+        this.stream = null
     }
 
     async initialize(){
@@ -70,6 +74,35 @@ class openai {
         }
     }
 
+    async promptStream(opts){
+        try{
+            if(this.ready){
+                const streamPromise = new Promise(async(resolve,reject) => {
+                    const src = new EventSource(`https://api.openai.com/v1/engines/${this.engine}/completions/browser_stream`,{headers:{"Authorization":this.apiToken},
+                    payload: {
+                        "prompt":opts.prompt,
+                        "temperature": opts.temperature ? opts.temperature : 0.3,
+                        "max_tokens": opts.maxTokens ? opts.maxTokens : 60,
+                        "top_p": opts.topProbability  ? opts.topProbability : 1.0,
+                        "frequency_penalty": opts.frequencyPenalty ? opts.frequencyPenalty : 0.5,
+                        "presence_penalty": opts.presencePenalty ? opts.presencePenalty : 0.0,
+                        "stop": opts.stop ? [...opts.stop] : ["###"]
+                    }})
+                    src.onmessage = (e) => {
+                        console.log(e)
+                        resolve(e)
+                    }
+                })
+                await streamPromise
+            }
+        }catch(err){
+            return err
+        }        
+    }
+
+    async endPromptStream(){
+
+    }
     async getEngines(){
         try{
             if(this.ready){

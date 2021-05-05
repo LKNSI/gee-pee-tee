@@ -1,4 +1,5 @@
-# gee-pee-tee 🏌️
+# @chatsight/gee-pee-tee 🏌️
+
 NodeJS library for interacting with OpenAI and their various language models and GPT weights.
 
 ## Installation

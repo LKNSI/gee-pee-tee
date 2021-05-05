@@ -1,6 +1,6 @@
 {
-  "name": "gee-pee-tee",
-  "version": "0.0.2",
+  "name": "@chatsight/gee-pee-tee",
+  "version": "0.0.4",
   "description": "NodeJS library for interacting with OpenAI",
   "main": "main.js",
   "scripts": {
@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/LKNSI/gee-pee-tee#readme",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "custom-event": "^1.0.1",
+    "custom-event-polyfill": "^1.0.7",
+    "eventsource": "^1.0.7",
+    "sse.js": "^0.5.0"
   }
 }
